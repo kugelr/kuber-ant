@@ -1,0 +1,29 @@
+<project default="run"> 
+
+    <target name="clean">
+    	<echo>Cleaning up...</echo>
+        <delete dir="build"/>
+    </target>
+
+    <target name="compile">
+    	<echo>Compiling Sources...</echo>
+        <mkdir dir="build/classes"/>
+        <javac srcdir="src" destdir="build/classes"/>
+    </target>
+
+    <target name="jar" depends="clean,compile">
+    	<echo>Building Jar...</echo>
+        <mkdir dir="build/jar"/>
+        <jar destfile="build/jar/HelloWorld.jar" basedir="build/classes">
+            <manifest>
+                <attribute name="Main-Class" value="HelloWorld"/>
+            </manifest>
+        </jar>
+    </target>
+
+    <target name="run" depends="jar">
+    	<echo>Running Main-Class...</echo>
+        <java jar="build/jar/HelloWorld.jar" fork="true"/>
+    </target>
+
+</project>
