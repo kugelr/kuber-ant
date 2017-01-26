@@ -23,6 +23,16 @@
 
     <target name="run" depends="jar">
     	<echo>Running Main-Class...</echo>
+    	
+    	<sleep seconds="2"/>
+    	<echo>Sleeping for 2</echo>
+    	<sleep seconds="2"/>
+    	<echo>Sleeping for 2</echo>
+    	<sleep seconds="2"/>
+    	<echo>Sleeping for 2</echo>
+    	<sleep seconds="2"/>
+    	<echo>Sleeping for 2</echo>
+    	<sleep seconds="2"/>
         <java jar="build/jar/HelloWorld.jar" fork="true"/>
     </target>
 
